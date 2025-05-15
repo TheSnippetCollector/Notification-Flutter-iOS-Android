@@ -1,8 +1,51 @@
-# First, let's set up Firebase Messaging in your Flutter project
+# 1 First, let's set up Firebase Messaging in your Flutter project
 
+### Before Starts:
+> Connect Firebase to your project using `firebase configure`
+
+⚠️ Warning : When you connect Firebase to a Flutter app using `flutterfire configure`:
+
+#### ✔️ It **does generate**:
+
+-   `lib/firebase_options.dart` — containing all app-specific Firebase config values.
+    
+
+#### ❌ It **does not always download**:
+
+-   `android/app/google-services.json`
+    
+-   `ios/Runner/GoogleService-Info.plist`
+
+Especially on **Windows**, the `plist` is almost never downloaded due to platform limitations.
+
+-   If you're on **macOS/Linux**: it often **downloads them automatically**
+    
+-   If you're on **Windows**: you usually need to **manually download the `.plist`** (and sometimes `.json` too if it fails).
+
+| Firebase Service | Requires `.plist` (iOS) / `.json` (Android)?|
+| - | - |
+| Firebase Auth | ✅ Yes |
+| Firebase Messaging (FCM) | ✅ Yes |
+| Firebase Firestore| ✅ Yes |
+| Firebase Analytics| ✅ Yes |
+| Firebase Crashlytics| ✅ Yes |
+
+### Solution : Manually add `GoogleService-Info.plist` to your Flutter iOS project
+-   Go to the Firebase Console
+    
+-   Open your project: `fir-d62e1`
+    
+-   Click the **gear icon** (⚙️) next to "Project Overview" → go to **Project settings**
+    
+-   Scroll down to **Your apps**
+    
+-   Under the iOS app (`com.example.tableCalender`), click **Download `GoogleService-Info.plist`**
+
+-  Move the File Into Your Project ` ios/Runner/GoogleService-Info.plist `
+---
 Start by adding the required packages to your `pubspec.yaml`:
 
-
+### Setup:
 ```
 dependencies: 
 	firebase_core:  ^2.24.2 
