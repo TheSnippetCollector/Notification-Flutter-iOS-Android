@@ -129,6 +129,8 @@ If you want to send messages to groups of devices:
 await FirebaseMessaging.instance.subscribeToTopic('weather');
 ```
 
+## 7. Permission for Android !
+
 > On Android, the permission to receive notifications is granted by default when the app is installed. Unlike iOS, Android doesn't require explicit user permission for basic notifications.
 
 Here's the explanation:
